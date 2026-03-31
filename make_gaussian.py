@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # Manual add noise to create overlap
     noise_level = 0.0
     # noise = rng.normal(loc=0.0, scale=noise_level, size=Z_raw.shape)
-    noise = 0.0
+    noise = noise_level = 0.0
     Z = Z_raw + noise
 
     # Create mask if gaps are desired
@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
     # save data
     np.savez(
-        f"data/make_gaussian_{n_samples}_seed42.npz",
+        f"data/make_gaussian_{n_samples}_noise{noise_level}_seed42.npz",
         X_train=X_train, y_train=y_train,
         X_val=X_val, y_val=y_val,
         X_test=X_test, y_test=y_test,
